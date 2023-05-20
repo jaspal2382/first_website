@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    #content {
+  text-align: center;
+  }
+
+.navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background: linear-gradient(to right, #4b6cb7, #182848);
+        box-shadow: 0px 0px 10px #555;
+      }
+      
+      .logo {
+        font-size: 22px;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+        margin-right: 20px;
+      }
+      
+      .navbar button {
+        background-color: white;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        margin: 0 10px;
+        border: 1px solid gray;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .navbar button:hover {
+        background-color: #4b6cb7;
+        color: white;
+        transform: scale(1.1);
+      }
+
+
+    h2 {
+      text-align: center;
+      font-size: 20px;
+      color: #333;
+    }
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+input[type="number"] {
+  width: 200px;
+  height: 30px;
+  margin-bottom: 20px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+#btnstylcal {
+  width: 70px;
+  height: 30px;
+  margin: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#demo {
+  margin-top: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+
+   .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 900px;
+      }
+
+      img {
+        height: 900px;
+      }
+}
+
+ .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 600px;
+      }
+
+      img {
+        height: 600px;
+      }
+
+      #button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        width: 10%;
+        margin-left: auto;
+        margin-right: auto;
+  
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="#" class="logo">My Website</a>
+
+        <button id="b3">Change Photos</button>
+
+        <button id="b1">Calculator</button>
+<button id="b2">Snake game</button>
+   </div>
+
+
+
+    <div id="content">
+       <div id="p1" style="display: none">
+
+        <h2>JavaScript Functions</h2>
+<form id="frm1" action="/action_page.php">
+  1st  number: <input type="number" id="fnum" ><br>
+  2nd  number: <input type="number" id="lname" ><br><br>
+</form>
+<button id="btnstylcal"  onclick="myFunctionAdd()">Sum</button>
+<button id="btnstylcal" onclick="myFunctionSub()">Subtract</button>
+<button id="btnstylcal"  onclick="myFunctionMultiply()">Multiply</button>
+<button id="btnstylcal" onclick="myFunctionDiv()">Divide</button>
+<button id="btnstylcal" onclick="myFunctionExp()">Exponent</button>
+
+       <p  id="demo"></p>
+
+
+</div>
+
+
+  <div id="p2" style="display: none">
+<canvas id="canvas"></canvas>
+</div>
+
+  <div id="p3" style="...">
+      <div class="image-container">
+          <img id="image" src="" alt="Image">
+      </div>
+
+
+</div>
+
+    <script>
+    const p1 = document.getElementById("p1");
+const p2 = document.getElementById("p2");
+const p3 = document.getElementById("p3");
+
+const b1 = document.getElementById("b1");
+b1.addEventListener("click", function() {
+  p1.style.display = "block";
+  p2.style.display = "none";
+  p3.style.display = "none";
+});
+
+const b2 = document.getElementById("b2");
+b2.addEventListener("click", function() {
+  p1.style.display = "none";
+  p2.style.display = "block";
+  p3.style.display = "none";
+});
+
+const b3 = document.getElementById("b3");
+b3.addEventListener("click", function() {
+  p1.style.display = "none";
+  p2.style.display = "none";
+  p3.style.display = "block";
+});
+
+
+ function myFunctionAdd()
+{
+let x = document.getElementById("fnum").value;
+
+let y = document.getElementById("lname").value ;
+ let  z;
+ z= parseInt(x)+parseInt(y);
+
+  document.getElementById("demo").innerHTML = z;
+}
+
+function myFunctionSub()
+{
+let x = document.getElementById("fnum").value;
+
+let y = document.getElementById("lname").value ;
+ let  z;
+ z= parseInt(x)-parseInt(y);
+
+  document.getElementById("demo").innerHTML = z;
+}
+
+function myFunctionMultiply()
+{
+let x = document.getElementById("fnum").value;
+
+let y = document.getElementById("lname").value ;
+ let  z;
+ z= parseInt(x)*parseInt(y);
+
+  document.getElementById("demo").innerHTML = z;
+}
+
+function myFunctionDiv()
+{
+let x = document.getElementById("fnum").value;
+
+let y = document.getElementById("lname").value ;
+ let  z;
+ z= parseFloat(x)/parseFloat(y);
+
+  document.getElementById("demo").innerHTML = z;
+}
+
+function myFunctionExp()
+{
+let x = document.getElementById("fnum").value;
+
+let y = document.getElementById("lname").value ;
+ let  z;
+ z= parseFloat(x)**parseFloat(y);
+
+  document.getElementById("demo").innerHTML = z;
+}
+
+
+const BG_COLOUR = '#231f20';
+const SNAKE_COLOUR = '#c2c2c2';
+const FOOD_COLOUR = '#e66916';
+
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+canvas.width = canvas.height =400;
+
+const FR = 10;
+const S = 20;
+const T = canvas.width / S;
+
+let pos, vel, food, snake;
+
+function init(){
+  pos = {x: 10, y: 10};
+  vel = {x: 0, y: 0};
+
+  snake = [
+    {x: 8, y: 10},
+    {x: 9, y: 10},
+    {x: 10, y: 10},
+  ]
+
+  randomFood();
+}
+
+init();
+
+function randomFood(){
+  food = {
+    x: Math.floor(Math.random() * T),
+    y: Math.floor(Math.random() * T),
+  }
+
+  for (let cell of snake) {
+    if(cell.x === food.x && food.y === cell.y) {
+      return randomFood();
+    }
+  }
+}
+
+document.addEventListener('keydown', keydown);
+
+function keydown(e){
+  switch(e.keyCode) {
+    case 37: {
+      return vel = {x: -1, y: 0}
+    }
+    case 38: {
+      return vel = {x: 0, y: -1}
+    }
+    case 39: {
+      return vel = {x: 1, y: 0}
+    }
+    case 40: {
+      return vel = {x: 0, y: 1}
+    }
+  }
+}
+
+setInterval(() => {
+  requestAnimationFrame(gameLoop);
+}, 1000 /FR);
+
+function gameLoop(){
+  ctx.fillStyle = BG_COLOUR;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = SNAKE_COLOUR;
+  for (let cell of snake) {
+    ctx.fillRect(cell.x*S, cell.y*S, S,S);
+  }
+
+  ctx.fillStyle = FOOD_COLOUR;
+  ctx.fillRect(food.x*S,food.y*S,S,S);
+
+  pos.x += vel.x;
+  pos.y += vel.y;
+
+  if (pos.x < 0 || pos.x > T || pos.y < 0 || pos.y > T) {
+    init();
+  }
+
+  if (food.x === pos.x && food.y === pos.y) {
+    snake.push({...pos});
+    pos.x += vel.x;
+    pos.y += vel.y;
+    randomFood();
+  }
+
+  if (vel.x || vel.y) {
+    for (let cell of snake) {
+      if (cell.x === pos.x && cell.y === pos.y) {
+        return init();
+      }
+    }
+    snake.push({...pos});
+    snake.shift();
+  }
+}
+
+
+const button = document.querySelector("#b3");
+    const image = document.querySelector("#image");
+    const images = [
+      "image1.jpg",
+      "image2.jpg",
+      "image3.jpg",
+    ];
+    let currentImageIndex = 0;
+    image.src = images[0]
+    button.addEventListener("click", function () {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      image.src = images[currentImageIndex];
+    });
+
+
+
+    </script>
+  </body>
+</html>
